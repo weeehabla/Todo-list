@@ -13,11 +13,11 @@ var addTask = function(task){
 }
 
 var removeTask = function(task){
-	var index = this.tasks.findindex(function(elemnt) {
+	var index = this.tasks.findIndex(function(elemnt) {
 		return task.id === elemnt.id 
 	});
-
-	if(index > 0){
+	
+	if(index >= 0){
 		this.tasks.splice(index,1);
 	}else{
 		console.warn('Task Not Found');
@@ -27,6 +27,10 @@ var removeTask = function(task){
 
 /*
 	==================== TASK ===================
+
+	Priority scheme:
+	0: highest
+	1: medium
 */
 
 
