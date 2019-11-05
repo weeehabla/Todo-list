@@ -1,0 +1,57 @@
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.col-12 {
+	width: 100%;
+}
+
+.col {
+	flex: auto;
+	/*width: 100%;*/
+}
+
+.input {
+	width: 100%;
+}
+
+.mx-5 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.task-wrap {
+	border: 1px solid;
+	padding: 1%;
+}
+
+main {
+	background: rgba(72, 72, 72, 0.36);
+    border-radius: 2.2px;
+    padding: 1%;
+    border: 1px solid #00000033;
+    box-shadow: 1px 1px #c1c1c1;
+    font-family: 'Merriweather', serif;
+}
+
+fieldset {
+	border: none;
+}
+
+button {
+	-webkit-appearance: button;
+    border: 1px solid #fff;
+    border-radius: 1.3px;
+    color: white;
+    font-family: monospace;
+    padding: 0.4rem;
+}
+
+.btn-green {
+	background: #0073aa;
+}
+
+.btn-blue {
+	background: #0073aa;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AM Todo-List</title>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<main>
+	<section>
+		<div class="row">
+			<div class="col-12">
+				<fieldset>
+					<legend>Create List</legend>
+					<div class="row">
+						<div class="col">
+							<input id="create-list-input" class="input" type="text" name="listName">
+						</div>
+						<div class="col">
+							<button id="create-list-btn" class="btn">Save</button>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<fieldset>
+					<legend>Create Task</legend>
+					<div class="row">
+						<div class="col-12 mx-5">
+							<label>Select List</label>
+							<select class="input" name="list" id="list-select">
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<input  id="create-task-input"class="input" type="" name="">
+						</div>
+						<div class="col">
+							<button class="btn" id="create-task-btn">Save</button>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</section>
+	<section id="show">
+	
+	</section>
+</main>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+ <script type="text/javascript" src="js/classes.js"></script>
+ <script type="text/javascript" src="js/main.js"></script>
+
+ <script type="text/javascript">
+ 	// var task1 = Task('Clean the room');
+ 	// var task2 = Task('Clean the car');
+ 	// var myList = List('List 1');
+
+
+ 	// console.log(myList)
+
+ 	// myList.addTask(task1);
+  // myList.addTask(task2);
+ 	// console.log(myList)
+ </script>
+</body>
+</html>
