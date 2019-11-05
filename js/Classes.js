@@ -32,6 +32,9 @@ var getTask = function(id) {
 	});
 }
 
+var makeList = function(name, tasks) {
+	// return new LSI
+}
 /*
 	==================== TASK ===================
 
