@@ -1,18 +1,19 @@
-var List = function(name){
+var List = function(name) {
 	var instence = {};
 	instence.name = name;
 	instence.tasks = [];
 	instence.addTask = addTask;
 	instence.removeTask = removeTask;
+	instence.getTask = getTask;
 
 	return instence
 }
 
-var addTask = function(task){
+var addTask = function(task) {
 	this.tasks.push(task);
 }
 
-var removeTask = function(task){
+var removeTask = function(task) {
 	var index = this.tasks.findIndex(function(elemnt) {
 		return task.id === elemnt.id 
 	});
@@ -23,6 +24,12 @@ var removeTask = function(task){
 		console.warn('Task Not Found');
 	}
 
+}
+
+var getTask = function(id) {
+	return this.tasks.find(function(elem) {
+		return id === elem.id;
+	});
 }
 
 /*
