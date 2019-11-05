@@ -109,9 +109,9 @@ $(document).ready(function() {
 							<small>Date</small>
 							<button class="task-remove-btn"
 							 data-list-id="${i}" 
-							 data-task-id="${task.id}">Remove</button>
+							 data-task-id="${task.id}">&cross;</button>
 							<button class="task-complete-btn" data-task-id="${task.id}"
-							data-list-id="${i}">Complete</button>
+							data-list-id="${i}">&check;</button>
 						</div>
 					</div>
 				</div>`
@@ -123,6 +123,12 @@ $(document).ready(function() {
 		$("#show").html(html)
 		}
 	}
+
+	// Background Image
+	var backImage = 'https://picsum.photos/1920/1080';
+
+	$('body').css('background',`url(${backImage})`).
+	css('background-size','cover');
 
 	// Storage Function 
 });

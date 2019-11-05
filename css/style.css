@@ -25,3 +25,16 @@
 	border: 1px solid;
 	padding: 1%;
 }
+
+main {
+	background: rgba(72, 72, 72, 0.36);
+    border-radius: 2.2px;
+    padding: 1%;
+    border: 1px solid #00000033;
+    box-shadow: 1px 1px #c1c1c1;
+    font-family: 'Merriweather', serif;
+}
+
+fieldset {
+	border: none;
+}
