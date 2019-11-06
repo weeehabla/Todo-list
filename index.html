@@ -1,74 +1,120 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>AM Todo-List</title>
-	<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>AM Todo-List</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-<main>
-	<section>
-		<div class="row">
-			<div class="col-12">
-				<fieldset>
-					<legend>Create List</legend>
-					<div class="row">
-						<div class="col">
-							<input id="create-list-input" class="input" type="text" name="listName">
-						</div>
-						<div class="col">
-							<button id="create-list-btn" class="btn">Save</button>
-						</div>
-					</div>
-				</fieldset>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<fieldset>
-					<legend>Create Task</legend>
-					<div class="row">
-						<div class="col-12 mx-5">
-							<label>Select List</label>
-							<select class="input" name="list" id="list-select">
-							</select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<input  id="create-task-input"class="input" type="" name="">
-						</div>
-						<div class="col">
-							<button class="btn" id="create-task-btn">Save</button>
-						</div>
-					</div>
-				</fieldset>
-			</div>
-		</div>
-	</section>
-	<section id="show">
-	
-	</section>
-</main>
 
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
- <script type="text/javascript" src="js/classes.js"></script>
- <script type="text/javascript" src="js/main.js"></script>
+<body id="gg">
+    <div id="overlay"></div>
+    <main>
+        <section>
+            <div class="container mx-5">
+                <div class="row">
+                    <div class="col">
+                        <h1>Create List</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <form id="create-list-form">
+                            <div class="form-input-grp">
+                                <input id="create-list-input" class="input" type="text" name="listName">
+                                <div class="input-grp-append">
+                                    <button class="btn btn-green" id="create-list-btn">Create</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>Create Task</h1>
+                    </div>
+                </div>
+                <div class="container-fluid mx-5">
+                    <div class="row">
+                        <div class="col">
+                            <label>Select List</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select class="input" name="list" id="list-select"></select>
+                        </div>
+                    </div>
+                    <div class="row mx-5">
+                        <div class="col">
+                            <form id="create-task-form">
+                                <div class="form-input-grp">
+                                    <div class="input-grp-prepend">
+                                        <label class="input-grp-label">Task</label>
+                                    </div>
+                                    <input id="create-task-input" class="input" type="text" name="task">
+                                    <div class="input-grp-append">
+                                        <button class="btn btn-dodger" id="create-task-btn">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="show">
+           <!--  <div class="container mx-5">
+                <div class="row">
+                    <div class="col">
+                        <h3>List Title</h3>
+                    </div>
+                </div>
+            </div>
 
- <script type="text/javascript">
- 	// var task1 = Task('Clean the room');
- 	// var task2 = Task('Clean the car');
- 	// var myList = List('List 1');
+            <div class="task-wrap">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-wrap">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <small class="date">Date Badge</small>
+                        </div>
+                    </div>
+                    <div class="col align-vertical-center">
+                        <div>
+                            <button title="Delete Task" class="btn-dodger task-remove-btn" data-list-id="${i}" data-task-id="${task.id}">&cross;
+                            </button>
+                            <div class="mx-5">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="Complete" data-task-id="${task.id}" data-list-id="${i}" title="Toggle Status" class="task-complete-btn">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/classes.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
- 	// console.log(myList)
+    <script type="text/javascript">
+        // var task1 = Task('Clean the room');
+        // var task2 = Task('Clean the car');
+        // var myList = List('List 1');
 
- 	// myList.addTask(task1);
-  // myList.addTask(task2);
- 	// console.log(myList)
- </script>
+        // console.log(myList)
+
+        // myList.addTask(task1);
+        // myList.addTask(task2);
+        // console.log(myList)
+    </script>
 </body>
+
 </html>

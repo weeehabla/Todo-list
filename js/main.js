@@ -5,11 +5,12 @@ $(document).ready(function() {
 	var key = 'listCollc';
 
 	// Get data from Local storage
-	// getData();
+	getData();
 
-	$('#create-list-btn').on('click', function(){
+	$('body').on('submit', '#create-list-form', function(e){
 		// Update later make sure that no list exist
 		// with same name;
+		e.preventDefault();
 
 		var listName = $('#create-list-input').val();
 
@@ -42,7 +43,8 @@ $(document).ready(function() {
 	}
 
 	// Handle create task
-	$('body').on('click', '#create-task-btn', function() {
+	$('body').on('submit', '#create-task-form',function(e) {
+		e.preventDefault();
 		saveTask();
 		updateDom();
 		saveData();
@@ -114,45 +116,49 @@ $(document).ready(function() {
 		var html = '';
 
 		for(var i in listCollec) {
-			var list = `<div class="row">
-			<div class="col">
-				<h4>${listCollec[i].name}</h4>`
-				for(var task of listCollec[i].tasks) {
-					var content = task.isComplete ? `<s>${task.content}</s>`: task.content
-					list +=`<div class="task-wrap">
-					<div class="row">
-						<div class="col">
-							<span>${content}</span>
-						</div>
-						<div class="col">
-							<small>Date</small>
-							<button title="Delete Task"
-							 class="task-remove-btn"
-							 data-list-id="${i}" 
-							 data-task-id="${task.id}">&cross;</button>
-							<button title="Mark as Complete"
-							class="task-complete-btn" 
-							data-task-id="${task.id}"
-							data-list-id="${i}">&check;</button>
-						</div>
-					</div>
-				</div>`
+			var list = 
+			` <div class="container mx-5">
+                <div class="row">
+                    <div class="col">
+                        <h3>${listCollec[i].name}</h3>
+                    </div>
+                </div>
+            </div>`;
 
-				}	
-			list +=`
-			</div>
-		</div>`;
+        for(var task of listCollec[i].tasks) {
+			var content = task.isComplete ? `<s>${task.content}</s>`: task.content;
+
+            list += 
+            `<div class="task-wrap">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-wrap">
+                            <p>${content}</p>
+                            <small class="date">${task.created_at.toLocaleString()}</small>
+                        </div>
+                    </div>
+                    <div class="col align-vertical-center">
+                        <div>
+                            <button title="Delete Task" class="btn-dodger task-remove-btn" data-list-id="${i}" data-task-id="${task.id}">&cross;
+                            </button>
+                              <label class="checkbox-container">
+                                    <input ${task.isComplete ? 'checked':''} type="checkbox" name="Complete" data-task-id="${task.id}" data-list-id="${i}" title="Toggle Status" class="task-complete-btn">
+                                    <span class="checkmark"></span>
+                              </label>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+		}
 
 		html += list;
 		} // / for Loop
 
-		$("#show").html(html)
+		$("#show").html(html).hide().fadeIn('slow');
 	}
 
 	// Background Image
 	var backImage = 'https://picsum.photos/1920/1080';
-
-	
 	// body.css('background',`url(${backImage})`)
 	// 	.css('background-size','cover');
 
@@ -164,44 +170,23 @@ $(document).ready(function() {
 
 	function getData() {
 		var data = st.getItem(key);
-		//listCollec = data !== null ? JSON.parse(data) : listCollec;
-		var data2 = JSON.parse(data).map(function(elemnt, key){
-			elemnt.addTask = addTask;
-			elemnt.removeTask = removeTask;
-			elemnt.getTask = getTask;
+		console.log(data)
+		if(data !== null){
+			var storeData = JSON.parse(data).forEach(function(val) {
+				var listTasks = val.tasks.map(function(task) {
+					var taskInstance = new Task(task.content, task.isComplete, task.created_at, task.id);
+					return taskInstance;
+				});
 
-			return elemnt ;
+				var list = new List(val.name, listTasks);
+				listCollec.push(list);
+			});
+			console.log(listCollec)
+		}
 
-		})
-		listCollec = data2;
 		updateList();
 		updateDom();
 	}
-// For Refactoring 
-
-	// var addTask = function(task) {
-	// 	this.tasks.push(task);
-	// }
-
-	// var removeTask = function(task) {
-	// 	var index = this.tasks.findIndex(function(elemnt) {
-	// 		return task.id === elemnt.id 
-	// 	});
-		
-	// 	if(index >= 0){
-	// 		this.tasks.splice(index,1);
-	// 	}else{
-	// 		console.warn('Task Not Found');
-	// 	}
-
-	// }
-
-	// var getTask = function(id) {
-	// 	return this.tasks.find(function(elem) {
-	// 		return id === elem.id;
-	// 	});
-	// }
-
 });
 
 	
