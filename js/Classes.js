@@ -1,7 +1,7 @@
-var List = function(name) {
+var List = function(name, tasks) {
 	var instence = {};
 	instence.name = name;
-	instence.tasks = [];
+	instence.tasks = tasks !== undefined ? tasks : [];
 	instence.addTask = addTask;
 	instence.removeTask = removeTask;
 	instence.getTask = getTask;
@@ -32,9 +32,7 @@ var getTask = function(id) {
 	});
 }
 
-var makeList = function(name, tasks) {
-	// return new LSI
-}
+
 /*
 	==================== TASK ===================
 
@@ -44,14 +42,14 @@ var makeList = function(name, tasks) {
 */
 
 
-var Task = function(content) {
+var Task = function(content, status, creation, _id) {
 	var instance = {};
 
 	instance.content = content;
-	instance.isComplete = false;
-	instance.created_at = new Date();
+	instance.isComplete = status !== undefined ? status : false;
+	instance.created_at = creation !== undefined ? creation : new Date();
 	instance.priority = 0;
-	instance.id = Math.floor((Math.random() * 1000) + 1);
+	instance.id = _id !== undefined ? _id : Math.floor((Math.random() * 1000) + 1);
 	instance.toggleStatus = toggleStatus;
 	instance.changePriority = changePriority;
 
