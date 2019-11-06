@@ -10,7 +10,7 @@ $(document).ready(function() {
 	$('body').on('submit', '#create-list-form', function(e){
 		// Update later make sure that no list exist
 		// with same name;
-		e.preventDefault();
+		e.preventDefault(); // prevent default action 
 
 		var listName = $('#create-list-input').val();
 
@@ -23,7 +23,6 @@ $(document).ready(function() {
 
 		listCollec.push(list);
 		$('#create-list-input').val('');
-
 		console.log(listCollec);
 		updateList();
 		saveData();
